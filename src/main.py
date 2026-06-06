@@ -143,7 +143,7 @@ async def lifespan(app: FastAPI):
                     database=app.state.database,
                 )
             )
-            logger.info(f"MCP server context ready (mounted at {settings.mcp.path})")
+            logger.info(f"MCP server context (mounted at {settings.mcp.path})")
 
         # Initialize Telegram bot (Phase 7)
         # Only one worker process may run the polling bot; others skip.

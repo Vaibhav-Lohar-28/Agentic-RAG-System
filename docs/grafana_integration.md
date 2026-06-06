@@ -21,7 +21,7 @@
 
 ---
 
-## 1. Prerequisites
+## 1. Prerequisite
 
 | Tool | Purpose | Install Command (macOS) |
 |------|---------|------------------------|

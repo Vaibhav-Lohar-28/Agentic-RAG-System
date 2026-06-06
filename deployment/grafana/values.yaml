@@ -8,14 +8,14 @@ destinations:
     auth:
       type: basic
       username: "3267520"
-      password: "${GRAFANA_CLOUD_TOKEN}"
+      password: "YOUR_GRAFANA_CLOUD_TOKEN"
   grafana-cloud-logs:
     type: loki
     url: https://logs-prod-028.grafana.net/loki/api/v1/push
     auth:
       type: basic
       username: "1629435"
-      password: "${GRAFANA_CLOUD_TOKEN}"
+      password: "YOUR_GRAFANA_CLOUD_TOKEN"
 
 clusterMetrics:
   enabled: true

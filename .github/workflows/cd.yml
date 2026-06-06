@@ -295,19 +295,20 @@ jobs:
             --dry-run=client -o yaml | kubectl apply -f -
 
       # ── Inject correct ECR image tags ─────────────────────────────────────
-      # The deployment YAMLs have placeholder image names (REPLACE_WITH_ECR_URI).
-      # sed replaces the placeholder with the actual ECR URI built in Job 1.
+      # sed replaces the existing image tag with the newly built SHA-tagged image.
+      # Uses a regex pattern to match any existing tag, so it works whether the
+      # YAML has a placeholder or a real ECR URI with :latest or :manual.
       - name: Set API image in deployment manifest
         run: |
           API_IMAGE="${{ needs.build-and-push.outputs.api-image }}"
-          sed -i "s|image: REPLACE_WITH_ECR_URI/agentic-rag/api:latest|image: ${API_IMAGE}|g" \
+          sed -i "s|image: .*agentic-rag/api:.*|image: ${API_IMAGE}|g" \
             deployment/k8s/api/deployment.yaml
           echo "API deployment image set to: ${API_IMAGE}"
 
       - name: Set Airflow image in deployment manifest
         run: |
           AIRFLOW_IMAGE="${{ needs.build-and-push.outputs.airflow-image }}"
-          sed -i "s|image: REPLACE_WITH_ECR_URI/agentic-rag/airflow:latest|image: ${AIRFLOW_IMAGE}|g" \
+          sed -i "s|image: .*agentic-rag/airflow:.*|image: ${AIRFLOW_IMAGE}|g" \
             deployment/k8s/airflow/deployment.yaml
           echo "Airflow deployment image set to: ${AIRFLOW_IMAGE}"
 

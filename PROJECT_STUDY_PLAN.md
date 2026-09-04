@@ -3,6 +3,7 @@
 **Repository reviewed:** `Vaibhav-Lohar-28/Agentic-RAG-System`
 **Review baseline:** commit `94daa1a758aa1a2694d6abb036cbe0961efa53d6`
 **Purpose:** learn the system from executable behavior first, then use the notebooks, phase guides, diagrams, and external documentation to understand the design choices and to test where the documentation has drifted.
+**Supplementary videos:** [`YOUTUBE_LEARNING_PATH.md`](YOUTUBE_LEARNING_PATH.md) maps curated YouTube explanations to the study plan; videos are learning aids, not a source of truth for this repository.
 
 This is a study plan, not a claim that every historical phase document describes the current runtime. The source of truth is the code and deployment configuration described in the next section.
 
